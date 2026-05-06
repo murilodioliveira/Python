@@ -35,6 +35,3 @@ while True:
                     print("Dangerous")
                     break
         break
-
-"""             else:
-                print("Enter a valid number") """
