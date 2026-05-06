@@ -1,3 +1,15 @@
+def isANumber(string):
+    number = string
+    try:
+        number = float(string)
+    except ValueError:
+        check = False
+        print("Is not a number!")
+        return number, check
+    else:
+        check = True
+        return number, check
+
 while True:
     scale = input("Enter C or F to indicate Celsius or Fahrenheit: ")
     if scale != 'C' and scale != 'F':
@@ -6,32 +18,22 @@ while True:
         while True:
             if scale == 'C':
                 degrees = input("Enter the number of degrees: ")
-                try:
-                   int_degrees = int(degrees) 
-                except ValueError:
-                    print("Enter a valid number")
-                    degrees = input("Enter the number of degrees: ")
-                else:                    
-                    if int_degrees >= 16 and int_degrees <= 38:
+                degrees, check = isANumber(degrees)
+                if check and degrees >= 16 and degrees <= 38:
                         print("Safe")
                         break
-                    else:
-                        print("Dangerous")
-                        break
+                else:
+                    print("Dangerous")
+                    break
             else:
                 degrees = input("Enter the number of degrees: ")
-                try:
-                    float_degrees = float(degrees)
-                except ValueError:
-                    print("Enter a valid number")
-                    degrees = input("Enter the number of degrees: ")
+                degrees, check = isANumber(degrees)
+                if check and degrees >= 60.8 and degrees <= 100.4:
+                    print("Safe")
+                    break
                 else:
-                    if float_degrees >= 60.8 and float_degrees <= 100.4:
-                        print("Safe")
-                        break
-                    else:
-                        print("Dangerous")
-                        break
+                    print("Dangerous")
+                    break
         break
 
 """             else:

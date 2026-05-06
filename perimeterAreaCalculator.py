@@ -18,8 +18,6 @@ def isANumber(string):
         return number, check
     else:
         check = True
-        #print(number)
-        #print(type(number))
         return number, check
 
 while True:
